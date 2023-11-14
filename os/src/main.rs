@@ -71,8 +71,3 @@ extern "C" fn _start() {
 
     sys_exit(9);
 }
-
-// extern "C" fn _start() {
-//     loop{};
-// }
-
