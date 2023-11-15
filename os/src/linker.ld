@@ -12,7 +12,11 @@ SECTIONS
         *(.text.entry)
         *(.text .text.*)
     }
+<<<<<<< Updated upstream
 
+=======
+    
+>>>>>>> Stashed changes
     . = ALIGN(4K);
     etext = .;
     srodata = .;
@@ -20,7 +24,11 @@ SECTIONS
         *(.rodata .rodata.*)
         *(.srodata .srodata.*)
     }
+<<<<<<< Updated upstream
 
+=======
+    
+>>>>>>> Stashed changes
     . = ALIGN(4K);
     erodata = .;
     sdata = .;
@@ -28,7 +36,11 @@ SECTIONS
         *(.data .data.*)
         *(.sdata .sdata.*)
     }
+<<<<<<< Updated upstream
 
+=======
+    
+>>>>>>> Stashed changes
     . = ALIGN(4K);
     edata = .;
     .bss : {
@@ -37,6 +49,7 @@ SECTIONS
         *(.bss .bss.*)
         *(.sbss .sbss.*)
     }
+<<<<<<< Updated upstream
 
     . = ALIGN(4K);
     ebss = .;
@@ -46,3 +59,14 @@ SECTIONS
         *(.eh_frame)
     }
 }
+=======
+    
+    . = ALIGN(4K);
+    ebss = .;
+    ekernel = .;
+    
+    /DISCARD/ : {
+        *(.eh_frame)
+    }
+}
+>>>>>>> Stashed changes
