@@ -2,15 +2,15 @@
 #![feature(linkage)]
 #![feature(panic_info_message)]
 
-use syscall::*;
-
-pub fn write(fd: usize, buf: &[u8]) -> isize { sys_write(fd, buf) }
-pub fn exit(exit_code: i32) -> isize { sys_exit(exit_code) }
-
 #[macro_use]
 pub mod console;
 mod syscall;
 mod lang_items;
+
+use syscall::*;
+
+pub fn write(fd: usize, buf: &[u8]) -> isize { sys_write(fd, buf) }
+pub fn exit(exit_code: i32) -> isize { sys_exit(exit_code) }
 
 fn clear_bss() {
     extern "C" {
@@ -35,3 +35,5 @@ pub extern "C" fn _start() -> ! {
 fn main() -> i32 {
     panic!("Cannot find main!");
 }
+// 实验4
+pub fn yield_() -> isize { sys_yield() }
