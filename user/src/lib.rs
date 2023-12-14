@@ -11,6 +11,8 @@ use syscall::*;
 
 pub fn write(fd: usize, buf: &[u8]) -> isize { sys_write(fd, buf) }
 pub fn exit(exit_code: i32) -> isize { sys_exit(exit_code) }
+pub fn yield_() -> isize { sys_yield() }
+pub fn get_time() -> isize { sys_get_time() }
 
 fn clear_bss() {
     extern "C" {
@@ -35,5 +37,3 @@ pub extern "C" fn _start() -> ! {
 fn main() -> i32 {
     panic!("Cannot find main!");
 }
-// 实验4
-pub fn yield_() -> isize { sys_yield() }
