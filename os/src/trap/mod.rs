@@ -14,8 +14,6 @@ use riscv::register::{
     stval,
     sie,
 };
-pub use context::TrapContext;
-
 use crate::syscall::syscall;
 use crate::task::{
     exit_current_and_run_next,
@@ -51,7 +49,6 @@ pub fn enable_timer_interrupt() {
 #[no_mangle]
 pub fn trap_handler() -> ! {
     set_kernel_trap_entry();
-    let cx = current_trap_cx();
     let scause = scause::read();
     let stval = stval::read();
     match scause.cause() {
@@ -120,5 +117,7 @@ pub fn trap_return() -> ! {
 
 #[no_mangle]
 pub fn trap_from_kernel() -> ! {
-    panic!("a trap from kernel!");
+    panic!("a trap {:?} from kernel!", scause::read().cause());
 }
+
+pub use context::{TrapContext};

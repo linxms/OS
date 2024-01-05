@@ -1,5 +1,3 @@
-//os/src/task/manager.rs
-
 use crate::sync::UPSafeCell;
 use super::TaskControlBlock;
 use alloc::collections::VecDeque;
